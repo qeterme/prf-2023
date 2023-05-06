@@ -1,1 +1,19 @@
-<p>home works!</p>
+<h1 class="text-4xl mb-4">Popular Courses</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 mb-8">
+  <app-card *ngFor="let i of [].constructor(4)" name="On-line Algorithms"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales." price="696969" id="69"></app-card>
+</div>
+
+<h1 class="text-4xl mb-4">New Courses</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 mb-8">
+  <app-card *ngFor="let i of [].constructor(4)" name="Cryptocurrencies"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales." price="696969" id="69"></app-card>
+</div>
+
+<h1 class="text-4xl mb-4">Hard Courses with Bad Lecturers</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 mb-8">
+  <app-card *ngFor="let i of [].constructor(4)" name="Automata and Formal Languages"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales." price="696969" id="69"></app-card>
+</div>
+
+<!-- <app-card [name]="name" [description]="description" [price]="price"></app-card> -->

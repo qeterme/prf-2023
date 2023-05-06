@@ -1,1 +1,41 @@
-<p>edit works!</p>
+<div class="flex flex-col xl:flex-row space-y-4 space-x-8 w-full">
+  <img [src]="imgSrc" class="w-96 h-96 bg-white rounded-full" alt="Product image">
+  <div class="flex flex-col space-y-4 w-full">
+    <div class="flex flex-row justify-between">
+      <div>
+        <label for="name" class="block mb-2 text-sm font-medium text-white">Course Name</label>
+        <input type="text" id="name" (input)="onNameChange($event)" [(ngModel)]="name" placeholder="Course Name"
+          class="border text-3xl rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+          required>
+      </div>
+      <a [routerLink]="['/courses', id, 'edit']">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max flex flex-row space-x-2">
+          <span>Save</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd"
+              d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+              clip-rule="evenodd" />
+          </svg>
+
+        </button>
+      </a>
+    </div>
+    <div class="w-full">
+      <label for="description" class="block mb-2 text-sm font-medium text-white">Description</label>
+      <textarea rows="10" id="description" (input)="onDescriptionChange($event)" [(ngModel)]="description"
+        placeholder="Description"
+        class="border rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+        required> </textarea>
+    </div>
+    <p class="text-gray-300">Course ID: {{id}}</p>
+    <div class="flex flex-row space-x-4 w-full justify-end">
+      <div>
+        <label for="price" class="block mb-2 text-sm font-medium text-white">Price</label>
+        <input type="number" id="price" (input)="onPriceChange($event)" [(ngModel)]="price" placeholder="Price"
+          class="border rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+          required>
+      </div>
+    </div>
+  </div>
+</div>

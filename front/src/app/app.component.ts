@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { identicon } from 'minidenticons';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front';
+
+  avatarSrc = 'data:image/svg+xml;utf8,' + encodeURIComponent(identicon(this.title));
 }

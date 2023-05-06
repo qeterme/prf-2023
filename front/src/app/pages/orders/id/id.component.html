@@ -1,1 +1,22 @@
-<p>id works!</p>
+<div class="flex flex-row justify-between">
+  <h1 class="text-3xl">Order #{{ id }}</h1>
+
+  <button class="w-max flex items-center justify-center rounded-md border border-gray-400 h-10 hover:ring p-4">
+    Delete
+  </button>
+</div>
+
+<div class="flex flex-col w-full">
+  <div class="flex flex-col xl:flex-row w-full">
+    <div class="flex flex-col w-full">
+      <h2 class="text-xl">User</h2>
+      <h3>{{ user.username }}</h3>
+    </div>
+    <div class="flex flex-col w-full">
+      <h2 class="text-xl">Course</h2>
+      <h3>{{ course.name }}</h3>
+    </div>
+  </div>
+  <!-- {{ date }} -->
+  <span class="font-semibold">Paid:</span> {{course.price}} 💸 @ {{ order.created_at }}
+</div>

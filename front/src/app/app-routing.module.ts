@@ -15,13 +15,14 @@ import { OrdersComponent } from './pages/orders/orders.component';
 
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { TermsComponent } from './pages/terms/terms.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
-  { path: 'products', component: ProductsComponent },
-  { path: 'products/:id', component: ProductIdComponent },
-  { path: 'products/:id/edit', component: ProductIdEditComponent },
+  { path: 'courses', component: ProductsComponent },
+  { path: 'courses/:id', component: ProductIdComponent },
+  { path: 'courses/:id/edit', component: ProductIdEditComponent },
 
   { path: 'users', component: UsersComponent },
   { path: 'users/:id', component: UsersIdComponent },
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'auth/register', component: RegisterComponent },
   { path: 'auth/login', component: LoginComponent },
   { path: 'auth', redirectTo: 'auth/login' },
+
+  { path: 'terms', component: TermsComponent },
 ];
 
 @NgModule({

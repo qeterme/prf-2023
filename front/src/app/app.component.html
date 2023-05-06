@@ -27,9 +27,9 @@
         <a routerLink="/"
           class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 2xl:text-base xl:text-sm">
           Home</a>
-        <a routerLink="/products"
+        <a routerLink="/courses"
           class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 2xl:text-base xl:text-sm">
-          Products</a>
+          Courses</a>
         <a routerLink="/orders"
           class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 2xl:text-base xl:text-sm">
           Orders</a>
@@ -44,8 +44,8 @@
           Sign Out
         </a>
 
-        <img
-          class="w-10 h-10 p-0.5 rounded-full ring-2 ring-purple-500 dark:ring-purple-500 hover:-rotate-180 hover:invert hover:scale-150 duration-300"
+        <img [src]="avatarSrc"
+          class="w-10 h-10 p-0.5 rounded-full ring-2 ring-purple-500 dark:ring-purple-500 hover:-rotate-180 hover:invert hover:scale-150 duration-300 bg-white"
           alt="Bordered avatar">
 
       </div>
@@ -56,3 +56,21 @@
 <div class="pt-24 container mx-auto">
   <router-outlet></router-outlet>
 </div>
+
+<footer class="rounded-lg shadow m-4 bg-gray-800 container mx-auto">
+  <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+    <a routerLink="/" class="text-gray-800 dark:text-gray-200">
+      <div class="flex items-center">
+        <img src="assets/logo.svg" class="flex-shrink-0 h-5 2xl:h-7 2xl:w-7" alt="GradeShop logo">
+        <p class="ml-2 text-lg 2xl:text-xl">
+          Grade<strong>Shop</strong>
+        </p>
+      </div>
+    </a> <span>All Rights Reserved.</span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+      <li>
+        <a routerLink="/terms" class="mr-4 hover:underline md:mr-6 ">Terms and Conditions</a>
+      </li>
+    </ul>
+  </div>
+</footer>

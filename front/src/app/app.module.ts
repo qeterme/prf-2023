@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { UsersIdComponent } from './pages/users/id/id.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { OrdersIdComponent } from './pages/orders/id/id.component';
 import { CardComponent } from './components/card/card.component';
+import { TermsComponent } from './pages/terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,11 @@ import { CardComponent } from './components/card/card.component';
 
     OrdersComponent,
     OrdersIdComponent,
+
     CardComponent,
+    TermsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
