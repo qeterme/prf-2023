@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
   // add name, description, price inputs
   @Input() name = '';
   @Input() description = '';
-  @Input() price = '';
+  @Input() price = 0;
   @Input() id = '';
 
   imgSrc = '';

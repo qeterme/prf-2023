@@ -21,6 +21,11 @@ import { OrdersComponent } from './pages/orders/orders.component';
 import { OrdersIdComponent } from './pages/orders/id/id.component';
 import { CardComponent } from './components/card/card.component';
 import { TermsComponent } from './pages/terms/terms.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductService } from './services/product/product.service';
+import { OrderService } from './services/order/order.service';
+import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -44,8 +49,8 @@ import { TermsComponent } from './pages/terms/terms.component';
     CardComponent,
     TermsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  providers: [ProductService, OrderService, UserService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
