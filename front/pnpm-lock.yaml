@@ -25,6 +25,9 @@ dependencies:
   '@angular/router':
     specifier: ^15.2.0
     version: 15.2.0(@angular/common@15.2.0)(@angular/core@15.2.0)(@angular/platform-browser@15.2.0)(rxjs@7.8.0)
+  minidenticons:
+    specifier: ^3.1.2
+    version: 3.1.2
   rxjs:
     specifier: ~7.8.0
     version: 7.8.0
@@ -4863,6 +4866,11 @@ packages:
       schema-utils: 4.0.1
       webpack: 5.76.1(esbuild@0.17.8)
     dev: true
+
+  /minidenticons@3.1.2:
+    resolution: {integrity: sha512-UKMFgjagF6kZvGTV/SuMFLqvqvcnylBKLFRgpX3/1emp8zjLswZPaFbdslN81D+GsYNxwjxUkWRIo71cM3W0uA==}
+    engines: {node: '>=15.14.0'}
+    dev: false
 
   /minimalistic-assert@1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
