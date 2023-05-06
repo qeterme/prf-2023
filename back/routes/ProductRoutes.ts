@@ -9,6 +9,13 @@ router.get('/', (req: any, res: { json: (arg0: any) => any; }) => {
     .catch((err: any) => res.json(err));
 });
 
+// GET /api/random 4
+router.get('/random', (req: any, res: { json: (arg0: any) => any; }) => {
+  Product.aggregate([{ $sample: { size: 12 } }])
+    .then((products: any) => res.json(products))
+    .catch((err: any) => res.json(err));
+});
+
 // GET /api/products/:id
 router.get('/:id', (req: { params: { id: any; }; }, res: { json: (arg0: any) => any; }) => {
   Product.findById(req.params.id)
