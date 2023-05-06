@@ -4,20 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 
-import { ProductsComponent } from './products/products.component';
-import { ProductIdComponent } from './products/id/id.component';
-import { ProductIdEditComponent } from './products/id/edit/edit.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductIdComponent } from './pages/products/id/id.component';
+import { ProductIdEditComponent } from './pages/products/id/edit/edit.component';
 
-import { RegisterComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 
-import { UsersComponent } from './users/users.component';
-import { UsersIdComponent } from './users/id/id.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UsersIdComponent } from './pages/users/id/id.component';
 
-import { OrdersComponent } from './orders/orders.component';
-import { OrdersIdComponent } from './orders/id/id.component';
+import { OrdersComponent } from './pages/orders/orders.component';
+import { OrdersIdComponent } from './pages/orders/id/id.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OrdersIdComponent } from './orders/id/id.component';
 
     OrdersComponent,
     OrdersIdComponent,
+    CardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

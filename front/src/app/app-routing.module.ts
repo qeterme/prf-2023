@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 
-import { ProductsComponent } from './products/products.component';
-import { ProductIdComponent } from './products/id/id.component';
-import { ProductIdEditComponent } from './products/id/edit/edit.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductIdComponent } from './pages/products/id/id.component';
+import { ProductIdEditComponent } from './pages/products/id/edit/edit.component';
 
-import { UsersIdComponent } from './users/id/id.component';
-import { UsersComponent } from './users/users.component';
+import { UsersIdComponent } from './pages/users/id/id.component';
+import { UsersComponent } from './pages/users/users.component';
 
-import { OrdersIdComponent } from './orders/id/id.component';
-import { OrdersComponent } from './orders/orders.component';
+import { OrdersIdComponent } from './pages/orders/id/id.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
