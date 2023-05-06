@@ -8,6 +8,7 @@ const path = require('path');
 import express from 'express';
 import mongoose from 'mongoose';
 import expressSession from 'express-session';
+import cors from 'cors';
 
 import passport from './passport';
 
@@ -37,14 +38,21 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(cors());
+
+const corsOptions = {
+  origin: 'http://localhost:4200',
+  optionsSuccessStatus: 200,
+};
+
 // routes
 import {authRoutes} from './routes/AuthRoutes';
 import productRoutes from './routes/ProductRoutes';
 import userRoutes from './routes/UserRoutes';
 
-app.use('/api/auth', authRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/auth', cors(corsOptions), authRoutes);
+app.use('/api/products', cors(corsOptions), productRoutes);
+app.use('/api/users', cors(corsOptions), userRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
