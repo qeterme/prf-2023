@@ -19,7 +19,7 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.baseUrl}/random`);
   }
 
-  getProduct(id: number) {
+  getProduct(id: string) {
     return this.http.get<Product>(`${this.baseUrl}/${id}`);
   }
 
@@ -28,10 +28,10 @@ export class ProductService {
   }
 
   updateProduct(product: Product) {
-    return this.http.put<Product>(`${this.baseUrl}/${product._id}`, product);
+    return this.http.patch<Product>(`${this.baseUrl}/${product._id}`, product);
   }
 
-  deleteProduct(id: number) {
+  deleteProduct(id: string) {
     return this.http.delete<Product>(`${this.baseUrl}/${id}`);
   }
 }

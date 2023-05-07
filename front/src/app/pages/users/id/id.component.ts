@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { identicon } from 'minidenticons';
+import { User } from 'src/app/model/User';
+import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-id',
@@ -8,29 +11,44 @@ import { identicon } from 'minidenticons';
   styleUrls: ['./id.component.scss'],
 })
 export class UsersIdComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private userService: UserService) {}
 
-  username: string = 'laci';
-  email = '';
+  user: User = null!;
   imgSrc = '';
-  id = '';
 
   onUsernameChange(event: Event) {
-    this.username = (event.target as HTMLInputElement).value;
+    this.user.username = (event.target as HTMLInputElement).value;
     this.imgSrc =
-      'data:image/svg+xml;utf8,' + encodeURIComponent(identicon(this.username));
+      'data:image/svg+xml;utf8,' + encodeURIComponent(identicon(this.user.username));
   }
 
   onEmailChange(event: Event) {
-    this.email = (event.target as HTMLInputElement).value;
+    this.user.email = (event.target as HTMLInputElement).value;
+  }
+
+  onRoleChange(event: Event) {
+    this.user.role = (event.target as HTMLInputElement).value;
+  }
+
+  saveUser() {
+    this.userService.updateUser(this.user).subscribe(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'User updated',
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    });
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.id = params['id'];
-      console.log(params['id']);
+      this.userService.getUser(params['id']).subscribe((data) => {
+        this.user = data;
+        this.imgSrc =
+          'data:image/svg+xml;utf8,' +
+          encodeURIComponent(identicon(this.user.username));
+      });
     });
-    this.imgSrc =
-      'data:image/svg+xml;utf8,' + encodeURIComponent(identicon(this.username));
   }
 }

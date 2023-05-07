@@ -1,13 +1,13 @@
-<a [routerLink]="['/courses', id]">
+<!-- <a [routerLink]="['/courses', course._id]"> -->
   <div class="block rounded-lg bg-slate-800 p-4 hover:bg-slate-700 transition duration-200">
-    <img [src]="imgSrc" class="rounded-full w-32 h-32 mx-auto bg-white mb-2">
-    <h1 class="text-2xl font-semibold text-center text-white">{{ name }}</h1>
-    <p class="text-center text-gray-400">{{ description }}</p>
+    <a [routerLink]="['/courses', course._id]"><img [src]="imgSrc" class="rounded-full w-32 h-32 mx-auto bg-white mb-2"></a>
+    <a [routerLink]="['/courses', course._id]"><h1 class="text-2xl font-semibold text-center text-white">{{ course.name }}</h1></a>
+    <a [routerLink]="['/courses', course._id]"><p class="text-center text-gray-400">{{ course.description }}</p></a>
     <div class="flex justify-center py-4 space-x-4">
-      <div class="px-4 py-2 text-white align-middle">{{ price }} 💸</div>
-      <button
+      <div class="px-4 py-2 text-white align-middle">{{ course.price }} 💸</div>
+      <button *ngIf="isLoggedIn()" (click)="buyNow()" [swal]="['Success!', 'Course grade bought successfully! Tho, as we wrote in the terms and conditions, the university will be contacted about your cheating.', 'success']"
         class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-500 focus:outline-none focus:bg-purple-500">Buy
         now</button>
     </div>
   </div>
-</a>
+<!-- </a> -->

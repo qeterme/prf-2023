@@ -1,7 +1,9 @@
 <div class="flex flex-row justify-between">
-  <h1 class="text-3xl">Order #{{ id }}</h1>
+  <h1 class="text-3xl">Order #{{ order._id }}</h1>
 
-  <button class="w-max flex items-center justify-center rounded-md border border-gray-400 h-10 hover:ring p-4">
+  <button class="w-max flex items-center justify-center rounded-md border border-gray-400 h-10 hover:ring p-4"
+  (click)="deleteOrder()"
+  >
     Delete
   </button>
 </div>
@@ -10,11 +12,23 @@
   <div class="flex flex-col xl:flex-row w-full">
     <div class="flex flex-col w-full">
       <h2 class="text-xl">User</h2>
-      <h3>{{ user.username }}</h3>
+      <div class="flex flex-row space-x-4 my-4 align-middle">
+        <img [src]="userAvatar" class="rounded-full w-16 h-16 bg-white mb-2">
+        <div class="flex flex-col">
+          <h3 class="font-semibold">{{ user.username }}</h3>
+          <p>{{user.email}}</p>
+        </div>
+      </div>
     </div>
     <div class="flex flex-col w-full">
       <h2 class="text-xl">Course</h2>
-      <h3>{{ course.name }}</h3>
+      <div class="flex flex-row space-x-4 my-4 align-middle">
+        <img [src]="courseAvatar" class="rounded-full w-16 h-16 bg-white mb-2">
+        <div class="flex flex-col">
+          <h3 class="font-semibold">{{ course.name }}</h3>
+          <p>{{course.description}}</p>
+        </div>
+      </div>
     </div>
   </div>
   <!-- {{ date }} -->

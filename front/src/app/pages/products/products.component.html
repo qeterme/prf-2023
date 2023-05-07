@@ -1,7 +1,6 @@
 <h1 class="text-4xl mb-4">Courses</h1>
 
 <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
-  <app-card *ngFor="let product of products" [name]="product.name" [description]="product.description"
-    [price]="product.price" [id]="product._id"></app-card>
+  <app-card *ngFor="let product of products" [course]="product"></app-card>
     <!-- <app-card *ngFor="let i of [].constructor(20)" name="Discrete Mathematics" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales." price="696969" id="69"></app-card> -->
 </div>
