@@ -27,6 +27,8 @@ import { OrderService } from './services/order/order.service';
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,14 @@ import { AuthService } from './services/auth/auth.service';
     CardComponent,
     TermsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SweetAlert2Module.forRoot(),
+  ],
   providers: [ProductService, OrderService, UserService, AuthService],
   bootstrap: [AppComponent],
 })
