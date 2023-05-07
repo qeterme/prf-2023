@@ -2,8 +2,8 @@ import { Product } from "./Product";
 import { User } from "./User";
 
 export interface Order {
-  _id: string;
+  _id?: string;
   user: User;
   product: Product;
-  created_at: Date;
+  created_at?: Date;
 }
