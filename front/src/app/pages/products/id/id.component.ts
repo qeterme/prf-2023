@@ -5,6 +5,7 @@ import { Product } from 'src/app/model/Product';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { OrderService } from 'src/app/services/order/order.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-id',
@@ -41,5 +42,20 @@ export class ProductIdComponent implements OnInit {
 
   isAdmin() {
     return this.authService.isCurrentUserAdmin();
+  }
+
+  buyNow() {
+    if (this.course) {
+      this.orderService.newOrder(
+        this.authService.getCurrentUser(),
+        this.course
+      );
+
+      Swal.fire({
+        title: 'Success!',
+        text: 'Course grade bought successfully! Tho, as we wrote in the terms and conditions, the university will be contacted about your cheating.',
+        icon: 'success',
+      });
+    }
   }
 }
