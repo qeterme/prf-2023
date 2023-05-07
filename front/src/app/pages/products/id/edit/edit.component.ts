@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { identicon } from 'minidenticons';
 import { Product } from 'src/app/model/Product';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class ProductIdEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private productService: ProductService
   ) {}
 
@@ -42,6 +43,18 @@ export class ProductIdEditComponent implements OnInit {
         timer: 1500,
         showConfirmButton: false,
       });
+    });
+  }
+
+  deleteCourse() {
+    this.productService.deleteProduct(this.course._id).subscribe(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Course deleted',
+        timer: 1500,
+        showConfirmButton: false,
+      });
+      this.router.navigate(['/courses']);
     });
   }
 
