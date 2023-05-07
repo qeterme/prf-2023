@@ -79,6 +79,9 @@ app.use("/api/users", cors(corsOptions), userRoutes);
 app.use("/api/orders", cors(corsOptions), orderRoutes);
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(/^((?!\/api\/).)*$/, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 // log every request
 app.use((req, res, next) => {
