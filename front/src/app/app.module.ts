@@ -28,6 +28,7 @@ import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ProductNewComponent } from './pages/products/new/new.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ProductsComponent,
     ProductIdComponent,
     ProductIdEditComponent,
+    ProductNewComponent,
 
     RegisterComponent,
     LoginComponent,

@@ -1,6 +1,19 @@
-<h1 class="text-4xl mb-4">Courses</h1>
+<div class="flex flex-row justify-between">
+  <h1 class="text-4xl mb-4">Courses</h1>
+  <a routerLink="/courses/new">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-max flex flex-row space-x-2">
+      <span>Add</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path fill-rule="evenodd"
+          d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
+          clip-rule="evenodd" />
+      </svg>
+
+    </button>
+  </a>
+</div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
   <app-card *ngFor="let product of products" [course]="product"></app-card>
-    <!-- <app-card *ngFor="let i of [].constructor(20)" name="Discrete Mathematics" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales." price="696969" id="69"></app-card> -->
+  <!-- <app-card *ngFor="let i of [].constructor(20)" name="Discrete Mathematics" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales." price="696969" id="69"></app-card> -->
 </div>

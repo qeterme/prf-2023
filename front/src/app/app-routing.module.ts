@@ -18,11 +18,13 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { ProductNewComponent } from './pages/products/new/new.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'courses', component: ProductsComponent },
+  { path: 'courses/new', component: ProductNewComponent },
   { path: 'courses/:id', component: ProductIdComponent },
   {
     path: 'courses/:id/edit',
