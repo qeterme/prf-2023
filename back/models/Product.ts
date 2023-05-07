@@ -5,7 +5,6 @@ const productSchema = new Schema({
     type: String,
     required: [true, 'Product name is required'],
     unique: [true, 'Product name is already taken'],
-    minlength: [5, 'Product name must be at least 5 characters long'],
     validate: {
       validator: function (v: string) {
         return /[a-zA-Z0-9]+/.test(v);
@@ -15,7 +14,6 @@ const productSchema = new Schema({
   description: {
     type: String,
     required: [true, 'Product description is required'],
-    minlength: [10, 'Product description must be at least 10 characters long'],
     validate: {
       validator: function (v: string) {
         return /[a-zA-Z0-9]+/.test(v);

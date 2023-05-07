@@ -24,8 +24,9 @@ router.get('/:id', (req: { params: { id: any; }; }, res: { json: (arg0: any) => 
 });
 
 // POST /api/products
-router.post('/', (req: { isAuthenticated: () => any; user: { isAdmin: any; }; body: any; }, res: { json: (arg0: any) => any; sendStatus: (arg0: number) => void; }) => {
+router.post('/', (req: any, res: any) => {
   // if (req.isAuthenticated() && req.user.isAdmin) {
+    delete req.body._id;
     Product.create(req.body)
       .then((product: any) => res.json(product))
       .catch((err: any) => res.json(err));
@@ -54,13 +55,13 @@ router.patch('/:id', (req: { isAuthenticated: () => any; user: { isAdmin: any; }
 
 // DELETE /api/products/:id
 router.delete('/:id', (req: { isAuthenticated: () => any; user: { isAdmin: any; }; params: { id: any; }; }, res: { json: (arg0: any) => any; sendStatus: (arg0: number) => void; }) => {
-  if (req.isAuthenticated() && req.user.isAdmin) {
+  // if (req.isAuthenticated() && req.user.isAdmin) {
     Product.findByIdAndDelete(req.params.id)
       .then((product: any) => res.json(product))
       .catch((err: any) => res.json(err));
-  } else {
-    res.sendStatus(401);
-  }
+  // } else {
+  //   res.sendStatus(401);
+  // }
 });
 
 export default router;
