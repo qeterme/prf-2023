@@ -21,7 +21,7 @@ if (process.env.MONGODB == undefined) {
   process.exit();
 }
 mongoose
-  .connect(process.env.MONGODB, {})
+.connect(process.env.MONGODB, {})
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
@@ -29,6 +29,9 @@ mongoose
 import "./models/Product";
 import "./models/User";
 import "./models/Order";
+
+import { bootstrap as dbbootstrap } from "./bootstrap";
+dbbootstrap().then(() => console.log("Bootstrap done"));
 
 app.use(cors());
 
@@ -57,6 +60,7 @@ import productRoutes from "./routes/ProductRoutes";
 import userRoutes from "./routes/UserRoutes";
 import orderRoutes from "./routes/OrderRoutes";
 import User from "./models/User";
+import { bootstrap } from "./bootstrap";
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", "true");
