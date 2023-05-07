@@ -12,14 +12,14 @@
         </div>
       </a>
       <div class="flex items-center space-x-2 xl:hidden">
-        <button
+        <!-- <button
           class="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:bg-gray-100 dark:focus:bg-gray-800 focus:outline-none">
           <svg viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-gray-300">
             <path fill-rule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
               clip-rule="evenodd"></path>
           </svg>
-        </button>
+        </button> -->
       </div>
     </div>
     <div class="xl:flex xl:flex-row xl:items-center xl:justify-between xl:flex-1 xl:space-x-2">
@@ -30,18 +30,26 @@
         <a routerLink="/courses"
           class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 2xl:text-base xl:text-sm">
           Courses</a>
-        <a routerLink="/orders"
+        <a routerLink="/orders" *ngIf="isLoggedIn()"
           class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 2xl:text-base xl:text-sm">
           Orders</a>
-        <a routerLink="/users"
+        <a routerLink="/users" *ngIf="isAdmin()"
           class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 2xl:text-base xl:text-sm">
           Users</a>
 
       </div>
       <div class="flex space-y-0 justify-end xl:justify-start flex-row items-center space-x-3 mt-2 xl:mt-0">
-        <a routerLink="/auth/signout"
+        <a *ngIf="isLoggedIn()" (click)="logout()"
           class="flex items-center justify-center h-12 px-4 text-sm text-center text-gray-600 transition-colors duration-300 transform border rounded-lg xl:h-10 dark:text-gray-300 dark:border-gray-300 bg-white/90 dark:bg-gray-900/70 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
           Sign Out
+        </a>
+        <a *ngIf="!isLoggedIn()" routerLink="/auth/login"
+          class="flex items-center justify-center h-12 px-4 text-sm text-center text-gray-600 transition-colors duration-300 transform border rounded-lg xl:h-10 dark:text-gray-300 dark:border-gray-300 bg-white/90 dark:bg-gray-900/70 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+          Login
+        </a>
+        <a *ngIf="!isLoggedIn()" routerLink="/auth/register"
+          class="flex items-center justify-center h-12 px-4 text-sm text-center text-gray-600 transition-colors duration-300 transform border rounded-lg xl:h-10 dark:text-gray-300 dark:border-gray-300 bg-white/90 dark:bg-gray-900/70 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+          Register
         </a>
 
         <img [src]="avatarSrc"
