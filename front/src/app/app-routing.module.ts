@@ -16,19 +16,29 @@ import { OrdersComponent } from './pages/orders/orders.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { TermsComponent } from './pages/terms/terms.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'courses', component: ProductsComponent },
   { path: 'courses/:id', component: ProductIdComponent },
-  { path: 'courses/:id/edit', component: ProductIdEditComponent },
+  {
+    path: 'courses/:id/edit',
+    component: ProductIdEditComponent,
+    canActivate: [AdminGuard],
+  },
 
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id', component: UsersIdComponent },
+  { path: 'users', component: UsersComponent, canActivate: [AdminGuard] },
+  { path: 'users/:id', component: UsersIdComponent, canActivate: [AdminGuard] },
 
-  { path: 'orders', component: OrdersComponent },
-  { path: 'orders/:id', component: OrdersIdComponent },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
+  {
+    path: 'orders/:id',
+    component: OrdersIdComponent,
+    canActivate: [AdminGuard],
+  },
 
   { path: 'auth/register', component: RegisterComponent },
   { path: 'auth/login', component: LoginComponent },
